@@ -1,0 +1,108 @@
+Setting up Flask Authentication Project
+
+Step 1: Create Virtual Environment
+
+    # Create a virtual environment
+    python3 -m venv venv
+
+    # Activate the virtual environment
+    # On Windows:
+    venv\Scripts\activate
+
+    # On macOS/Linux:
+    source venv/bin/activate
+
+Step 2: Install Requirements
+
+    # Make sure you are in the project directory and your virtual environment is activated
+    # Install required Python packages
+    pip3 install -r requirements.txt
+
+Step 3: Migrate Database
+
+    # Initialize the database migration
+    python3 manage.py makemigrations
+    python3 manage.py makemigrations extraction (optional --> when migrations are not reflect in database)
+
+    # Apply migrations
+    python3 manage.py migrate
+
+    # create superuser
+    python3 manage.py createsuperuser
+
+Step 5: Install packages from requirements.txt
+    pip3 install -r requirements.txt
+
+Step 5: Run django server
+
+    # This command is user for run django server
+    python3 manage.py runserver
+
+    Also run celery parallel in new tab:-
+
+    # This command is user for run celery worker
+    celery -A text_extraction_service worker --loglevel=inf
+
+    #This command is use for run celery beat
+    celery -A text_extraction_service beat --loglevel=inf
+
+This all steps use for run application Locally.
+
+
+
+
+Now this steps is use for run application using docker
+
+Step 1:
+    #If you want to run only with Docker file then Hit command:-
+
+    docker build -t text_extraction_service .
+    docker run -d -p 8000:8000 extraction
+
+    #If you want to Run Using Docker Compose then hit this command:
+
+    docker-compose build
+    docker-compose up
+
+
+
+
+
+
+
+
+
+
+Forgot Password Functionality::::-
+
+Implemented two methods:
+
+(1)API reset password:
+
+Users can initiate password reset by providing their email via API request.
+Upon request, an email containing a reset link is sent to the user's email address.
+The link includes a token for password reset.
+
+(2)Direct Template reset password:
+
+Users can access a password reset template directly via URL with the provided token.
+This route renders the template where users can input their new password.
+
+
+
+
+
+OTP Login Functionality::::-
+
+Utilizing Twilio for seamless authentication:
+
+API Endpoint (/signin_with_otp):
+
+Users provide their phone number and receive an OTP via SMS.
+Upon receiving the OTP, users enter it along with their phone number for authentication.
+If the OTP is valid, users are granted access to their account.
+Twilio Integration:
+
+Twilio's SMS service is integrated into the application for sending OTPs securely.
+Twilio API facilitates the delivery of OTPs to users' phone numbers in real-time.
+This integration ensures reliable and efficient OTP-based authentication for users.
