@@ -1,7 +1,6 @@
 amqp==5.2.0
 argcomplete==1.10.3
 asgiref==3.8.1
-async-timeout==4.0.3
 beautifulsoup4==4.8.2
 billiard==4.2.0
 celery==5.4.0
@@ -31,7 +30,6 @@ pycryptodome==3.20.0
 python-crontab==3.1.0
 python-dateutil==2.9.0.post0
 python-pptx==0.6.23
-redis==5.0.5
 six==1.12.0
 sortedcontainers==2.4.0
 soupsieve==2.5
