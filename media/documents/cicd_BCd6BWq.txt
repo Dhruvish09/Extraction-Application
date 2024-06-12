@@ -1,0 +1,49 @@
+(1)Source:-
+	Check-in source code
+	Peer review new code
+	Version Control
+	Multi-enterprise
+	
+(2)Build:-
+	Compile code
+	Run unit tests
+	Create Container Images
+(3)Test:-
+	Integration Test
+	UI Test
+	Load Test
+	Penetration Test
+(4)Deploy:-
+	Deployment to Prod Environment
+	
+	
+Aws CodePipeline:-
+	Source ->> Aws CodeCommit / Amazon s3 / Github 
+	Build  ->> Aws CodeBuild / Add Jenkins / Solono CI
+	Test   ->> Third Party Tooing
+	Deploy ->> Aws CodeDeploy / Amazon ECS / AWS CloudFormation / AWS Elastic Benstalk / AWS OpsWorks Stacks
+	
+
+
+
+AWS CICD WorkFlow:-
+
+	(1)Web Application Deployments:-
+		
+		App --> Aws CodeCommit/Github --> Aws CodeBuild(JUnit --> S3) --> Aws CodeDeploy --> VPC(EC2) --> Live 
+	
+	(2)Infrastructure Rollouts:-
+		In this approch there are 2 repo for maintain CICD (1)Developer (2)Devops
+		
+		DevCode(Developer) --> Code Repo --> AWS CodeBuild --> Aws CodeDeploy --> Ec2 --> Live
+		Infracode(Devops)  --> Infra Repo --> AWS CodeDeploy --> EC2 --> Live
+			
+	
+	(3)Serverless Application Deployments
+		Lambda Function Dev --> Aws CodeCommit --> Aws CodeBuild --> Create Stack --> User --> Execute Stack --> Lambda Function --> Amazon CloudWatch --> Ec2 --> Live
+		
+Aws Template:-
+
+
+	Aws Build Template:
+		buildspec.yml
